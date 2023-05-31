@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Departamentos Médicos</title>
+    <style>
+        body{
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .contenedor{
+            background-color: bisque;
+            height:auto;
+            margin: 5%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        p{
+            width:max-content;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Listado de Departamentos Médicos</h1>
+        {% if not depto %}
+        <p>No hay Departamentos Médicos</p>
+        {% endif %}
+        <table>
+            <thead>
+                <th>No. Departamento&nbsp;&nbsp;</th>
+                <th>&nbsp;&nbsp;Especialidad&nbsp;&nbsp;</th>
+                <th>Concentración&nbsp;&nbsp;</th>
+            </thead>
+            <tbody>
+            {% for item in depto%}
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;{{item.NoDepto}}</td>
+                    <td>&nbsp;&nbsp;{{item.Especialidad}}</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.concentracion}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>    
+</body>
+</html>w

@@ -1,0 +1,20 @@
+{% extends "base/base.html" %}
+{% block page_content %}
+<div class= "card-body">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <a style="color: #050404;">Eliminar Paciente:</a>
+        <input type="text" name = 'paciente' value = "{{sick.DNI}}" class="form-control form-control-user" disabled readonly>
+            </div>
+            <div class="col-sm-6">
+                <a style="color: #050404; " >Nombre:</a>
+        <input type="text" name = 'pacienteNombre' value = "{{sick.Nombres}}" class="form-control form-control-user" disabled readonly>
+            </div>
+        </div>
+        &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-google btn-user  btn-md " >Eliminar</button>
+    </form>
+    
+</div>
+{% endblock %}

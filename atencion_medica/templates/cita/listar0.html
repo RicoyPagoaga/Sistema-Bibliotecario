@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Citas</title>
+    <style>
+        body{
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .contenedor{
+            background-color: bisque;
+            height:auto;
+            margin: 5%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        p{
+            width:max-content;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Listado de Citas</h1>
+        {% if not cita %}
+        <p>no hay Citas Agendadas</p>
+    {% endif %}
+    <table>
+        <thead>
+            <th>No. Cita&nbsp;&nbsp;</th>
+            <th>Fecha de Registro&nbsp;&nbsp;</th>
+            <th>Fecha de Atención&nbsp;&nbsp;</th>
+            <th>Paciente&nbsp;&nbsp;</th>
+            <th>Doctor&nbsp;&nbsp;</th>
+            <th>Descripción&nbsp;&nbsp;</th>
+        </thead>
+        <tbody>
+        {% for item in cita %}
+            <tr>
+                <td>{{item.NoCita}}</td>
+                <td>{{item.FechaRegistro}}</td>
+                <td>{{item.FechaAtencion}}</td>
+                <td>&nbsp;&nbsp;{{item.DniPaciente}}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;{{item.IdDoctor}}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;{{item.Descripcion}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>  
+</body>
+</html>

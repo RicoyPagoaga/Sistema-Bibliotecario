@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Doctores</title>
+    <style>
+        body{
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .contenedor{
+            background-color: bisque;
+            height:auto;
+            margin: 5%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        p{
+            width:max-content;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Listado de Doctores</h1>
+        {% if not doc %}
+        <p>no hay doctores registrados</p>
+        {% endif %}
+        <table>
+            <thead>
+                <th>ID Doctor&nbsp;&nbsp;</th>
+                <th>Nombre&nbsp;&nbsp;&nbsp;</th>
+                <th>Apellido</th>
+                <th>Fecha Nacimiento&nbsp;&nbsp;</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Fecha de Ingreso&nbsp;&nbsp;</th>
+                <th>No. Consultorio</th>
+            </thead>
+            <tbody>
+            {% for item in doc %}
+                <tr>
+                    <td>&nbsp;&nbsp;{{item.IdDoctor}}</td>
+                    <td>{{item.Nombres}}&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;{{item.Apellidos}}&nbsp;&nbsp;</td>
+                    <td>{{item.FechaNac}}</td>
+                    <td>{{item.Telefono}}&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;{{item.correo}}</td>
+                    <td>&nbsp;&nbsp;&nbsp;{{item.FechaIngreso}}</td>
+                    <td>&nbsp;&nbsp;{{item.NoConsultorio}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

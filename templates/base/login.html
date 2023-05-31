@@ -1,0 +1,87 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block side_bar %}{% endblock side_bar %}
+{% block top_bar %}{% endblock top_bar %}
+{% block footer %}{% endblock footer %}
+{% block page_content %}{% endblock page_content %}
+{% block login %}
+
+<body class="bg-gradient-secondary" >
+
+    <div class="jumbotron vertical-center"> <!-- 
+        ^--- Added class  -->
+        <div class="container"  style="background-color: #5b9aa2;" >
+            <!-- Outer Row -->
+            <div class="row justify-content-center">
+    
+                <div class="col-xl-10 col-lg-12 col-md-9">
+    
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <img  class="img-thumbnail mx-auto d-block" src = "{% static '/base/img/OIP.jpg' %}">
+                                <div class="col-lg-6" style="background-color: #ecf0f1">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4 "><strong>Inicie sesión en su cuenta</strong></h1>
+                                        </div>
+                                        {% if form.errors %}
+                                            {% for field in form %}
+                                                {% for error in field.errors %}
+                                                    <div class="alert alert danger">
+                                                        <strong style="color: #9b1919;">{{ error|escape }}</strong>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endfor %}
+                                            {% for error in form.non_field_errors %}
+                                                <div class="alert alert danger">
+                                                    <strong style="color: #9b1919;">{{ error|escape }}</strong>
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                        <form class="user" method = "post">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form-control-user"
+                                                    aria-describedby="emailHelp" placeholder="Nombre de Usuario" name="username">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control form-control-user" placeholder="Contraseña" name="password">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox small">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                    <label class="custom-control-label" for="customCheck"><strong>Recuerdame</strong></label>
+                                                </div>
+                                            </div>
+                                            <button type= "submit" class="btn btn-success btn-user  btn-block bt- bt-flat m-b-30 m-t-30"><strong>Iniciar Sesión</strong></button>
+                                        </form>
+                                        <hr>
+                                        <div class="text-center">
+                                            <a class="small" href="forgot-password.html">Olvidaste la Contraseña?</a>
+                                        </div>
+                                        <div class="text-center">
+                                            <a class="small" href="register.html">Crea una cuenta!</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+        </div>
+    </div>
+    
+
+    <!-- Bootstrap core JavaScript-->
+    
+
+</body>
+
+</html>
+{% endblock login %}

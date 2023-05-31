@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+{% block footer %}{% endblock footer %}
+{% block page_content %}
+<div class="col-lg-6">
+    <!-- Dropdown No Arrow -->
+    <div class="card border-left-info border-bottom-info mb-4">
+        <div class="card-header py-3" style="background-color: #9cecec">
+            <h6 class="m-0 font-weight-bold text-dark">Atención Médica</h6>
+        </div>
+        <div class="card-body">
+            <div class="dropdown mb-4">
+                <button class="btn btn-info dropdown-toggle" type="button"
+                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    OPCIONES
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{% url 'departamento_listar' %}">Departamentos</a>
+                    <a class="dropdown-item" href="{% url 'consultorio_listar' %}">Consultorios</a>
+                    <a class="dropdown-item" href="{% url 'doctor_listar' %}">Doctores</a>
+                    <a class="dropdown-item" href="{% url 'paciente_listar' %}">Pacientes</a>
+                    <a class="dropdown-item" href="{% url 'cita_listar' %}">Citas</a>
+                </div>
+            </div>
+            Selecciona una opción de atención médica
+        </div>
+    </div>
+</div>
+
+{% endblock page_content %}
